@@ -19,7 +19,7 @@ jobs:
           chmod 600 packer/ansible-key.pem
 
       - name: Setup Packer
-        uses: hashicorp/setup-packer@v1
+        uses: hashicorp/setup-packer@v2
         with:
           version: latest
 
