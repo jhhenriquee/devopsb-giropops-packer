@@ -2,7 +2,8 @@ locals {
   image_id = var.release != "" ? var.release : formatdate("YYYYMMDDhhmmss", timestamp())
 }
 
-packer {  required_plugins {
+packer {  
+  required_plugins {
     amazon = {
       version = ">= 1.0.0"
       source  = "github.com/hashicorp/amazon"
@@ -17,6 +18,7 @@ packer {  required_plugins {
 source "amazon-ebs" "ubuntu" {
   region                  = var.aws_region
   instance_type           = var.instance_type
+  ssh_private_key_file    = var.private_key_file
   ami_name                = "${replace("${var.ami_name}-base-${local.image_id}", ".", "-")}"
   source_ami_filter {
     filters = {

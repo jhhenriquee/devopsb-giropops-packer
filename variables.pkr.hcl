@@ -18,3 +18,15 @@ variable "user" {
   description = "Usuário default"
   default     = "ubuntu"
 }
+
+variable "private_key_file" {
+  description = "Caminho para a chave privada usada para SSH"
+  type        = string
+  default     = "ansible-key.pem"
+}
+
+variable "release" {
+  description = "Tag ou timestamp de release para nomear a AMI"
+  type        = string
+  default     = ""
+}
