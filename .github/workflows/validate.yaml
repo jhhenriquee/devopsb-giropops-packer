@@ -23,4 +23,4 @@ jobs:
         run: "packer init packer/."
 
       - name: Run `packer validate`
-        run: "packer validate ."
+        run: "packer validate packer/."
