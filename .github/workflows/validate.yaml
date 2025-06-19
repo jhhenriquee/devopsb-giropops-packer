@@ -1,26 +1,17 @@
-name: packer validation
+steps:
+  - name: Checkout
+    uses: actions/checkout@v4
 
-on:
-  pull_request:
+  - name: Setup packer
+    uses: hashicorp/setup-packer@v1
 
-env:
-  PACKER_VERSION: "latest"
+  - name: Criar arquivo da chave privada
+    run: |
+      echo "${{ secrets.ANSIBLE_PRIVATE_KEY }}" > packer/ansible-key.pem
+      chmod 600 packer/ansible-key.pem
 
-jobs:
-  validation:
-    runs-on: ubuntu-latest
-    name: Run Packer Validation
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+  - name: Packer init
+    run: packer init packer/
 
-      - name: Setup `packer`
-        uses: hashicorp/setup-packer@main
-        with:
-          version: ${{ env.PACKER_VERSION }}
-
-      - name: Run `packer init`
-        run: "packer init ."
-
-      - name: Run `packer validate`
-        run: "packer validate ."
+  - name: Packer validate
+    run: packer validate packer/
