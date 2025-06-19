@@ -18,3 +18,15 @@ variable "user" {
   description = "Usuário default"
   default     = "ubuntu"
 }
+
+variable "key_pair_name" {
+  description = "Nome da chave SSH para acesso à instância"
+  type        = string
+  default     = "ansible-key"
+}
+
+variable "private_key_file" {
+  description = "Caminho para a chave privada usada para SSH"
+  type        = string
+  default     = "ansible-key.pem"
+}
