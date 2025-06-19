@@ -2,7 +2,8 @@ locals {
   image_id = var.release != "" ? var.release : formatdate("YYYYMMDDhhmmss", timestamp())
 }
 
-packer {  required_plugins {
+packer {  
+  required_plugins {
     amazon = {
       version = ">= 1.0.0"
       source  = "github.com/hashicorp/amazon"
