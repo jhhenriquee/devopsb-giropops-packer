@@ -22,7 +22,7 @@ variable "user" {
 variable "private_key_file" {
   description = "Caminho para a chave privada usada para SSH"
   type        = string
-  default     = "ansible-key.pem"
+  default     = "packer/ansible-key.pem"
 }
 
 variable "release" {
