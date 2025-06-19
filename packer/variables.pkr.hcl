@@ -30,3 +30,9 @@ variable "private_key_file" {
   type        = string
   default     = "ansible-key.pem"
 }
+
+variable "release" {
+  description = "Tag ou timestamp de release para nomear a AMI"
+  type        = string
+  default     = ""
+}
