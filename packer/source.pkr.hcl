@@ -19,7 +19,6 @@ source "amazon-ebs" "ubuntu" {
   region                  = var.aws_region
   instance_type           = var.instance_type
   ssh_private_key_file    = var.private_key_file
-  key_name                = var.key_pair_name
   ami_name                = "${replace("${var.ami_name}-base-${local.image_id}", ".", "-")}"
   source_ami_filter {
     filters = {
