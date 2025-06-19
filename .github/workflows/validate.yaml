@@ -15,8 +15,8 @@ jobs:
       - name: Write private key file
         run: |
           mkdir -p packer
-          echo "${{ secrets.ANSIBLE_PRIVATE_KEY }}" > packer/ansible-key.pem
-          chmod 600 packer/ansible-key.pem
+          echo "${{ secrets.ANSIBLE_PRIVATE_KEY }}" > ansible-key.pem
+          chmod 600 ansible-key.pem
 
       - name: Setup Packer
         uses: hashicorp/setup-packer@v2
@@ -24,7 +24,7 @@ jobs:
           version: latest
 
       - name: Run packer init
-        run: packer init packer/
+        run: packer init .
 
       - name: Run packer validate
-        run: packer validate packer/
+        run: packer validate .
