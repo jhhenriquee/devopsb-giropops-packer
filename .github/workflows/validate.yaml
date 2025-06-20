@@ -12,12 +12,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Write private key file
-        run: |
-          mkdir -p packer
-          echo "${{ secrets.ANSIBLE_PRIVATE_KEY }}" > ansible-key.pem
-          chmod 600 ansible-key.pem
-
       - name: Setup Packer
         uses: hashicorp/setup-packer@v2
         with:
