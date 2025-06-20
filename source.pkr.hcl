@@ -18,11 +18,10 @@ packer {
 source "amazon-ebs" "ubuntu" {
   region                  = var.aws_region
   instance_type           = var.instance_type
-  ssh_private_key_file    = var.private_key_file
   ami_name                = "${replace("${var.ami_name}-base-${local.image_id}", ".", "-")}"
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/hvm-ssd/ubuntu-24.04-amd64-server-*"
+      name                = "*ubuntu/images*ubuntu*24.04-amd64-server*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
