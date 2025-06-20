@@ -2,7 +2,3 @@ roles:
   - name: geerlingguy.docker
     version: "7.1.0"
     src: https://github.com/geerlingguy/ansible-role-docker
-
-  - name: ansible-zabbix.zabbix_agent
-    src: git+https://github.com/ansible-collections/ansible.zabbix.git
-    version: "2.1.0"
